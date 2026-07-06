@@ -85,6 +85,10 @@ Wire the I2C Display to the Raspberry Pi, use the following pins for each pinout
 | SDA   |     GPIO2     | Pin 3 |
 | SCL   |     GPIO3     | Pin 5 |
 
+
+**Check if the Raspberry detects the display**
+> i2cdetect -y 1
+
 Expected output
 ```
             0  1  2  3  4  5  6  7  8  9  a  b  c  d
