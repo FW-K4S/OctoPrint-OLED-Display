@@ -51,8 +51,6 @@ Wire the DHT20 to the Raspberry Pi, use the following pins for each pinout.
 Check connection status of the I2C
 > i2cdetect -y 1
 
-I2C allows multiple devices to be wired up to the same signal lines, and will use a different address for each device.
-
 Expected output
 ```
             0  1  2  3  4  5  6  7  8  9  a  b  c  d
@@ -77,6 +75,8 @@ This means no device has taken address 38.
 ### Connecting 128 x 64 px I2C Display
 
 Wire the I2C Display to the Raspberry Pi, use the following pins for each pinout.
+
+I2C allows multiple devices to be wired up to the same signal lines, and will use a different address for each device.
 
 | DHT20 | Raspberry Pi  |  Pin  |
 | ----- |:-------------:|:-----:|
