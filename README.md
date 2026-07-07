@@ -1,7 +1,7 @@
 # HOW TO 
 **Add temperature and humidity display to Raspberry Pi**
 
-
+![Temperature and Humidity Display](/images/generic/printer.png "Display Image")
 
 ## Raspberry Setup
 **Update packages**
@@ -199,6 +199,7 @@ Open the scriptgenerator.exe and enter your Raspberry Pi username, it will autom
 Copy the contents of the script by opening it in notepad and copy paste it in the display.service file.
 Or your can of course just tranfer the script to the Raspberry Pi through SFTP. 
 
+![Script Generator](/images/generator/generator_01.png "FW-K4S Script Generator")
 
 #### Optionally; if you for any reason do not trust my script, use the following method OR open the scriptgenerator.py and run it with python.
         *Use the following script for the service file.*
