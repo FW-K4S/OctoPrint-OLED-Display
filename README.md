@@ -36,6 +36,9 @@ If not;
 
 ### Connecting DHT20 to Raspberry Pi
 
+![Pin-out Raspberry](/images/generic/pi-pinout.jpg "Raspberry Pi Pinout.")
+
+
 Wire the DHT20 to the Raspberry Pi, use the following pins for each pinout.
 
 | DHT20 | Raspberry Pi  |  Pin  |
