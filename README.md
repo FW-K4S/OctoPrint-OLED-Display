@@ -146,57 +146,77 @@ In the Virtual Environment, install the adafruit library to read the DHT20
 ## Creating script
 
 ### Create script
+
+**IMPORTANT** Navigate to your home folder
+> cd /home/pi
+
+
+Create the script with the following command
 > sudo nano temphumiditydisplay.py
 
-*Paste the contents of the provided script in scripts/temphumiditydisplay.py*
+**Paste the contents of the provided script in scripts/temphumiditydisplay.py**
 
-**For the printer status line, confirm the correct serial interface and change it in the code.**
-> ls /dev/serial/by-id/
 
-Using the "DEVICENAME" for the string "DEVICE_NUMBER1_TEST_ITEM" should detect it
+#### -OPTIONAL-
+        For the printer status line, confirm the correct serial interface and change it in the script.*
+        > ls /dev/serial/by-id/
 
-**Confirm if this is the correct device by unplugging the printer and seeing if it disapears, after testing again with**
-> ls /dev/serial/by-id/
+        *Using the "DEVICENAME" for the string "DEVICE_NUMBER1_TEST_ITEM" will detect it*
 
-**Run the script and confirm the display shows the correct printer status**
-> source dht20-env/bin/activate && sleep 1 && python temphumiditydisplay.py
+        **Confirm if this is the correct device by unplugging the printer and seeing if it disapears, after testing again with**
+        > ls /dev/serial/by-id/
+
+        **Run the script and confirm the display shows the correct printer status**
+        > source dht20-env/bin/activate && sleep 1 && python temphumiditydisplay.py
+
 
 
 ## Setting the script up for automatic startup
 
+Here we will set up the automatic startup of the script.
+
+
+#### Creating the file
 We will create a .service file in systemmd, this service will get executed on startup.
 
 **First, copy the path of your script**
 > realpath temphumiditydisplay.py
 
-`/home/raspi/realpath temphumiditydisplay.py`
+`/home/pi/realpath/temphumiditydisplay.py`
 
 Save the path somewhere in a notepad file
 
 
+#### Creating the script
+
 **Create the service in the systemmd folder**
 > sudo nano /etc/systemd/system/display.service
 
+Open the scriptgenerator.exe and enter your Raspberry Pi username, it will automatically generate the .service script for you.
+Copy the contents of the script by opening it in notepad and copy paste it in the display.service file.
+Or your can of course just tranfer the script to the Raspberry Pi through SFTP. 
 
-**Paste the following script in this new service file.**
 
-- Replace $SCRIPTPATH with the previously saved path in the notepad document, EG; "/home/raspi/temphumiditydisplay.py".
-- Replace $USERNAME with the username you are using.
+#### Optionally; if you for any reason do not trust my script, use the following method OR open the scriptgenerator.py and run it with python.
+        *Use the following script for the service file.*
 
-```
-[Unit]
-Description=I2C Display Script
-After=multi-user.target
+        - Replace $SCRIPTPATH with the previously saved path in the notepad document, EG; "/home/raspi/temphumiditydisplay.py".
+        - Replace $USERNAME with the username you are using.
 
-[Service]
-User=$USERNAME
-WorkingDirectory=/home/$USERNAME/dht20-env
-ExecStart=/home/$USERNAME/dht20-env/bin/python $SCRIPTPATH
-Restart=always
-RestartSec=5
+        ```
+        [Unit]
+        Description=I2C Display Script
+        After=multi-user.target
 
-[Install]
-WantedBy=multi-user.target
-```
+        [Service]
+        User=$USERNAME
+        WorkingDirectory=/home/$USERNAME/dht20-env
+        ExecStart=/home/$USERNAME/dht20-env/bin/python $SCRIPTPATH
+        Restart=always
+        RestartSec=5
+
+        [Install]
+        WantedBy=multi-user.target
+        ```
 
 Exit and save.
