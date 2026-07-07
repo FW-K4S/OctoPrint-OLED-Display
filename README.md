@@ -161,15 +161,15 @@ Create the script with the following command
 
 
 #### -OPTIONAL-
-        For the printer status line, confirm the correct serial interface and change it in the script.*
+        For the printer status line, confirm the correct serial interface and change it in the script.
         > ls /dev/serial/by-id/
 
-        *Using the "DEVICENAME" for the string "DEVICE_NUMBER1_TEST_ITEM" will detect it*
+        Using the "DEVICENAME" for the string "DEVICE_NUMBER1_TEST_ITEM" will detect it
 
-        **Confirm if this is the correct device by unplugging the printer and seeing if it disapears, after testing again with**
+        Confirm if this is the correct device by unplugging the printer and seeing if it disapears, after testing again with**
         > ls /dev/serial/by-id/
 
-        **Run the script and confirm the display shows the correct printer status**
+        Run the script and confirm the display shows the correct printer status**
         > source dht20-env/bin/activate && sleep 1 && python temphumiditydisplay.py
 
 
@@ -185,7 +185,7 @@ We will create a .service file in systemmd, this service will get executed on st
 **First, copy the path of your script**
 > realpath temphumiditydisplay.py
 
-`/home/pi/realpath/temphumiditydisplay.py`
+`/home/pi/temphumiditydisplay.py`
 
 Save the path somewhere in a notepad file
 
