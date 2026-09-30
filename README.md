@@ -1,7 +1,7 @@
 # HOW TO 
 **Add temperature and humidity display to Raspberry Pi**
 
-
+![Temperature and Humidity Display](/images/generic/printer.png "Display Image")
 
 ## Raspberry Setup
 **Update packages**
@@ -35,6 +35,9 @@ If not;
 ## Hardware Setup
 
 ### Connecting DHT20 to Raspberry Pi
+
+![Pin-out Raspberry](/images/generic/pi-pinout.jpg "Raspberry Pi Pinout.")
+
 
 Wire the DHT20 to the Raspberry Pi, use the following pins for each pinout.
 
@@ -158,15 +161,15 @@ Create the script with the following command
 
 
 #### -OPTIONAL-
-        For the printer status line, confirm the correct serial interface and change it in the script.*
+        For the printer status line, confirm the correct serial interface and change it in the script.
         > ls /dev/serial/by-id/
 
-        *Using the "DEVICENAME" for the string "DEVICE_NUMBER1_TEST_ITEM" will detect it*
+        Using the "DEVICENAME" for the string "DEVICE_NUMBER1_TEST_ITEM" will detect it
 
-        **Confirm if this is the correct device by unplugging the printer and seeing if it disapears, after testing again with**
+        Confirm if this is the correct device by unplugging the printer and seeing if it disapears, after testing again with**
         > ls /dev/serial/by-id/
 
-        **Run the script and confirm the display shows the correct printer status**
+        Run the script and confirm the display shows the correct printer status**
         > source dht20-env/bin/activate && sleep 1 && python temphumiditydisplay.py
 
 
@@ -182,7 +185,7 @@ We will create a .service file in systemmd, this service will get executed on st
 **First, copy the path of your script**
 > realpath temphumiditydisplay.py
 
-`/home/pi/realpath/temphumiditydisplay.py`
+`/home/pi/temphumiditydisplay.py`
 
 Save the path somewhere in a notepad file
 
@@ -196,6 +199,7 @@ Open the scriptgenerator.exe and enter your Raspberry Pi username, it will autom
 Copy the contents of the script by opening it in notepad and copy paste it in the display.service file.
 Or your can of course just tranfer the script to the Raspberry Pi through SFTP. 
 
+![Script Generator](/images/generator/generator_01.png "FW-K4S Script Generator")
 
 #### Optionally; if you for any reason do not trust my script, use the following method OR open the scriptgenerator.py and run it with python.
         *Use the following script for the service file.*
